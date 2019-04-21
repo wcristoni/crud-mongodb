@@ -2,11 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-var dotenv = require('dotenv' )
-dotenv.config({ silent: true })
-//dotenv.load()
+var dotenv = require('dotenv' );
+dotenv.config({ silent: true });
 
-const MongoClient = require('mongodb').MongoClient 
+const MongoClient = require('mongodb').MongoClient;
 const uri = process.env.MONGO_DB;
 
 MongoClient.connect(uri, (err, client) => {
