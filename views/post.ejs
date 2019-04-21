@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset=”utf-8″>
+    <meta name=”viewport” content=”width=device-width, initial-scale=1, shrink-to-fit=no”>
+    <title>Meu primeiro CRUD com NodeJS + MongoDB</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+
+<body style="font-size: 1rem;">
+
+    <div id="rodape">
+        <h2>Registros<h2>
+    </div>
+    
+    <div id="geral" class="container-fluid">
+        <table class="table table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">url</td>
+                    <th scope="col">tag</td>
+                    <th scope="col">usuário</td>
+                    <th scope="col">ação</td>
+                </tr>
+            </thead>
+            <tbody>
+            <% data.forEach(function(details) { %>
+                <tr>
+                    <td  scope="row"><%= details._id %></td>
+                    <td><%= details.url %></td>
+                    <td><%= details.tags %></td>
+                    <td><%= details.usuario %></td>
+                    <td>
+                        <a href="#" class="btn btn-secondary btn-lg active" style="width:70px" role="button" aria-pressed="true" onClick="javascript:window.location.assign('/edit/<%= details._id %>');">Edit</a>&nbsp;
+                        <a href="#" class="btn btn-primary btn-lg active" style="width:70px" role="button" aria-pressed="true" onClick="javascript:if (confirm('Confirma a exclusão desse registro?')==true) window.location.assign('/del/<%= details._id %>');">Del</a>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+    <div id="rodape" style="text-align:center">
+        <a href="#" class="btn btn-secondary btn-lg active" style="width:48%" role="button" aria-pressed="true"onClick="javascript:window.history.back();">Voltar</a>
+        <a href="#" class="btn btn-primary btn-lg active"  style="width:48%" role="button" aria-pressed="true" onClick="javascript:window.location.assign('/');">Novo</a>
+    </div>
+    
+</body>
+</html>

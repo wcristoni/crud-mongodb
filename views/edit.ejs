@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset=”utf-8″>
+        <meta name=”viewport” content=”width=device-width, initial-scale=1, shrink-to-fit=no”>
+        <title>Meu primeiro CRUD com NodeJS + MongoDB</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    </head>
+    <body>
+        <div id="geral">
+            <% data.forEach(function(data) { %>
+                <div id="titulo" class="text-center">
+                    <br><h3>Editar Registro <%= data._id %><h3><br>
+                </div>
+                <form action="/edit/<%= data._id %>"method="POST">
+                    <textarea rows = "15" cols = "55" name="urls" id="urls" placeholder="Essa pagina veio de um EDIT" class="form-control"><%=JSON.stringify({"url": data.url, "tags": data.tags,"usuario": data.usuario});%></textarea>
+                    <br><button type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
+                </form> 
+            <%}); %>
+        </div>
+    </body>
+</html>
