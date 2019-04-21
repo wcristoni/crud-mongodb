@@ -8,7 +8,7 @@ dotenv.config({ silent: true })
 
 const MongoClient = require('mongodb').MongoClient 
 const uri = process.env.MONGO_DB;
-//'mongodb+srv://botjs-xerife-user:botjsXerifeDicas001@cluster0-zmif2.mongodb.net/test?retryWrites=true'
+
 MongoClient.connect(uri, (err, client) => {
     if (validar(err)==false)
         return console.log(err);
